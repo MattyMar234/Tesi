@@ -1,0 +1,100 @@
+\section*{Riassunto del contenuto della Tesi}
+%\subsection*{Campo applicativo}
+La tesi tratta l'applicazione delle reti neurali % al telerilevamento 
+% , nello specifico di reti 
+% convoluzionali (CNN), 
+% Il telerilevamento, è una scienza che permette di identificare, misurare ed
+% analizzare le caratteristiche qualitative e quantitative di una 
+% determinata area di interesse senza entrare in contatto diretto con 
+% essa. Tipicamente, l’oggetto di studio nel telerilevamento è il 
+% pianeta Terra in tutte le sue componenti: territorio, acqua e atmosfera.
+% Nello specifico, l'applicazione 
+% delle reti neurali convoluzionali (CNN) all'agricoltura di precisione, 
+per svolgere  
+una mappatura delle colture agricole (\textit{Crop mapping}) 
+utilizzando immagini satellitari Sentinel-2.
+La mappatura delle colture è una delle molte applicazioni del telerilevamento e 
+consiste nell’identificazione e classificazione delle colture agricole 
+all'interno di un'area geografica.
+Questa applicazione è fondamentale per supportare il 
+processo decisionale e fornire inventari accurati e tempestivi per stimare la 
+produzione e monitorare la crescita dinamica delle colture a varie scale. 
+%\subsection*{Parte sperimentale}
+La tesi è strutturata su otto capitoli:
+Il primo capitolo tratta la definizione di rete neurale, di \textit{Deep learning} e di 
+\text{Machine Learning}.
+Viene inoltre illustrato il concetto di dataset ed i metodi che si utilizzano per 
+valutare le prestazioni di un modello di \textit{Deep learning}.
+Nel secondo capitolo vengono presentati i framework che permettono lo sviluppo di modelli 
+di \textit{Deep learning}, il linguaggio di programmazione utilizzato per la realizzazione dei 
+modelli ed il concetto di Tensore.
+Nel terzo capitolo vengono richiamati i concetti fondamentali del
+telerilevamento, illustrando come avviene l'acquisizione delle informazioni nel telerilevamento.
+Nel quarto capitolo si approfondisce il funzionamento di una rete neurale classica, 
+partendo dalle basi fino a trattare concetti più complessi.
+Nel quinto capitolo vengono trattate le reti neurali convolutive, illustrando i principi 
+su cui si basano queste tipologie di reti e gli elementi di cui sono composte. 
+% Nel sesto capitolo vengono richiamati i concetti di base dietro alla segmentazione delle immagini.
+% Sempre nello stesso capitolo, viene anche illustrata l'architettura UNet.
+Nel sesto capitolo vengono trattati i concetti di base relativi alla segmentazione 
+delle immagini. Illustrando anche l'architettura UNet, spesso utilizzata per applicazioni 
+di segmentazione semantica delle immagini.
+Il settimo capitolo tratta la sperimentazione, illustrando il processo per la realizzazione di 
+un modello in grado di eseguire la segmentazione semantica su delle immagini satellitari.
+% Mentre nell'ottavo capitolo vengono discussi i risultati ottenuti, mettendoli a confronto con i 
+% risultati ottenuti da altri modelli applicati allo stesso problema. 
+Nell'ottavo capitolo vengono discussi i risultati ottenuti, confrontandoli
+con quelli ottenuti da altri modelli descritti in articoli che utilizzano lo stesso dataset.
+Nella parte sperimentale della tesi è stato esposto l'intero 
+procedimento per realizzare un sistema capace di apprendere 
+automaticamente le caratteristiche di ogni campo agricolo, descrivendo i vari problemi riscontrati 
+e le soluzioni adottate.
+Per l'addestramento di questo sistema è stato utilizzo il dataset Sentinel2-Munich480, 
+un dataset contenente immagini satellitari Sentinel-2 sull'area a nord di Monaco, in Germania.
+Per lo sviluppo del modello sono state applicate due diverse architetture di reti neurali per la 
+segmentazione semantica di immagini.
+La prima versione del sistema era 
+basata sull'architettura U-Net, ma presentava alcune limitazioni nel riconoscimento di molte colture agricole.
+La seconda versione del sistema si basava invece su una versione dell'architettura U-Net che 
+sfruttava le convoluzioni 3D. 
+L'utilizzo di quest'ultima architettura, ha permesso al sistema di raggiungere un precisione 
+del 91.92\% sul dataset di valutazione ed una precisione del 91.84\% sul dataset 
+di validazione, raggiungendo risultati molto vicini allo stato dell'arte nel campo del 
+crop mapping sul dataset Sentinel2-Munich480.
+
+
+
+
+
+
+% \subsection*{Struttura della tesi}
+% Il libro si articola in un'esauriente trattazione tecnica che 
+% spazia dai fondamenti teorici dell'intelligenza artificiale (AI) e 
+% dell'apprendimento automatico (Machine Learning, ML) fino a 
+% specifiche applicazioni nel telerilevamento per la segmentazione 
+% delle immagini, con particolare attenzione ai dati 
+% satellitari Sentinel-2.
+
+% Introduzione all'Intelligenza Artificiale, Machine Learning e Deep Learning
+% Il primo capitolo introduce i concetti fondamentali di intelligenza artificiale, delineando l'evoluzione storica e i principi alla base di questa disciplina. Successivamente, il focus si sposta sul machine learning, descrivendone le definizioni, le modalità di apprendimento (supervisionato, non supervisionato e per rinforzo) e le principali categorie di problemi affrontati. La sezione dedicata al deep learning esplora le caratteristiche delle reti neurali profonde, enfatizzando l'importanza dei dataset e delle tecniche di valutazione dei modelli, come la matrice di confusione, l'accuratezza, precisione, richiamo e F1-score.
+
+% Frameworks e Linguaggi di Programmazione
+% Il secondo capitolo analizza i principali strumenti di sviluppo, con un approfondimento sul linguaggio Python e sui framework per il deep learning, come TensorFlow, Keras, PyTorch e PyTorch Lightning. Viene sottolineata l'importanza dei tensori come struttura dati centrale per il calcolo nei modelli neurali, discutendo le loro proprietà computazionali e rappresentazioni.
+
+% Caratterizzazione Remota del Suolo
+% La sezione sul telerilevamento (remote sensing) fornisce una panoramica completa delle tecniche e tecnologie impiegate per l'osservazione della Terra. Si analizzano le piattaforme di acquisizione dati, lo spettro elettromagnetico, le interazioni tra radiazione e superficie terrestre e le firme spettrali. Ampio spazio è dedicato al programma Copernicus e alle missioni Sentinel-2, spiegandone le caratteristiche tecniche e le applicazioni.
+
+% Reti Neurali Artificiali
+% Questo capitolo affronta la struttura e il funzionamento delle reti neurali artificiali (ANN). Dopo un'introduzione alle reti biologiche, si passa ai modelli matematici fondamentali, come il modello McCulloch-Pitts, il perceptrone e le reti multilivello (MLP). Sono trattati dettagliatamente concetti come il gradient descent, la backpropagation e le funzioni di attivazione, inclusi Softmax e ReLU. La sezione si conclude con una discussione sugli ottimizzatori e sulla cross-entropy come funzione di perdita.
+
+% Reti Neurali Convoluzionali (CNN)
+% Le CNN vengono introdotte con una descrizione dei principi matematici della convoluzione discreta e della cross-correlation. Si approfondiscono le peculiarità delle reti convoluzionali, i parametri della convoluzione e le tecniche di pooling (Max e Average Pooling).
+
+% Image Segmentation e Architettura U-Net
+% Il capitolo sulla segmentazione delle immagini presenta le diverse tecniche per suddividere un'immagine in regioni significative, con particolare attenzione all'architettura U-Net. Vengono spiegati gli aspetti strutturali delle U-Net, come le skip connections e l'up-convolution, che rendono questo modello particolarmente adatto per applicazioni di segmentazione.
+
+% Sperimentazione e Applicazioni
+% La parte finale si concentra su esperimenti pratici. Viene descritto l'approccio al riconoscimento di campi agricoli utilizzando i dati Sentinel-2. Le sezioni includono dettagli sull'implementazione delle reti neurali (incluso l'uso di U-Net e di convoluzioni 3D), sull'elaborazione di dataset multispettrali e sull'ottimizzazione dei risultati tramite tecniche come la mosaicatura e l'esclusione di classi irrilevanti.
+
+% Conclusioni
+% Il libro offre un'analisi approfondita e multidisciplinare, integrando teorie di base, strumenti pratici e applicazioni avanzate. È una risorsa ideale per chi desidera comprendere il ruolo delle reti neurali nella segmentazione di immagini, con un particolare focus sul telerilevamento e sull'elaborazione di dati multispettrali.

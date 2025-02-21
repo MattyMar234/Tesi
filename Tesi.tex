@@ -1,0 +1,135 @@
+\documentclass[a4paper, 12pt]{report}
+\usepackage[italian]{babel}
+%\usepackage[english]{babel}
+\usepackage[a4paper, top=2cm, bottom=2cm, inner=2cm, outer=2cm, headheight=1cm, headsep=1cm, footskip=1cm]{geometry}
+\usepackage{setspace} % Interlinea
+%\usepackage{mathptmx} % Times New Roman
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx, wrapfig} % Per il logo dell'università
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref} % Gestisce gli URL e i collegamenti ipertestuali
+\usepackage{breakurl} % Permette di spezzare gli URL lunghi
+%\usepackage{minted}
+
+% Pacchetto per le note a piè di pagina
+\usepackage{footmisc}
+\renewcommand{\footnotesize}{\fontsize{10pt}{10pt}\selectfont} % Note in 10 pt con interlinea singola
+
+%latexmk -pdf -shell-escape tuo_documento.tex
+\setlength{\parindent}{0pt}
+\usepackage{amsmath,amssymb}
+
+%\onehalfspacing
+
+% Definizione del colore di sfondo e altre impostazioni
+\definecolor{bggray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{keywords}{rgb}{0.0, 0.0, 0.6}
+\definecolor{comments}{rgb}{0.0, 0.5, 0.0}
+\definecolor{strings}{rgb}{0.6, 0.1, 0.1}
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{bggray},
+    keywordstyle=\color{keywords}\bfseries,
+    commentstyle=\color{comments}\itshape,
+    stringstyle=\color{strings},
+    frame=single,
+    rulecolor=\color{black},
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=4,
+    breaklines=true,
+    breakatwhitespace=true
+}
+
+\begin{document}
+
+    %%==========[RIASSUNTO]==========%%
+    %\input{Riassunto.tex}
+    
+    %%==========[FRONTESPIZIO]==========%%
+    
+    \input{Frontespizio.tex}
+    \newpage
+    \thispagestyle{empty}
+    \mbox{}
+    \newpage
+
+    %%==========[ABSTRACT]==========%%
+    \input{Abstract.tex}
+    
+
+    %%==========[INDICE]==========%%
+    \input{Index.tex}
+
+
+    % %%==========[CAPITOLO I]==========%%
+    \input{Capitoli/Capitolo_IA_ML_DL/main.tex}
+    \input{Capitoli/Capitolo_IA_ML_DL/Il_deep_learning.tex}
+    \input{Capitoli/Capitolo_IA_ML_DL/dataset.tex}
+    \input{Capitoli/Capitolo_IA_ML_DL/valutazione_modelli.tex}
+
+    %%==========[CAPITOLO II]==========%%
+    \input{Capitoli/Capitolo_Tools/main.tex}
+    \input{Capitoli/Capitolo_Tools/tensori.tex}
+
+    %%==========[CAPITOLO III]==========%%
+    \input{Capitoli/Capitolo_RemoteSensing/main.tex}
+    \input{Capitoli/Capitolo_RemoteSensing/RemoteSensing.tex}
+    \input{Capitoli/Capitolo_RemoteSensing/OndeEletroMagnetiche.tex}
+    \input{Capitoli/Capitolo_RemoteSensing/ImmaginiMultispettrali.tex}
+    \input{Capitoli/Capitolo_RemoteSensing/Sentinel2.tex}
+
+    
+    
+    %%==========[CAPITOLO IV]==========%%
+    \input{Capitoli/Capitolo_RetiNeurali/main.tex}
+    \input{Capitoli/Capitolo_RetiNeurali/Il_Neurone.tex}
+    \input{Capitoli/Capitolo_RetiNeurali/percettrone.tex}
+    \input{Capitoli/Capitolo_RetiNeurali/percettroneMultistrato.tex}
+    %\input{Capitoli/Capitolo_RetiNeurali/Implementazione.tex}
+
+    %%==========[CAPITOLO V]==========%%
+    \input{Capitoli/Capitolo_Convoluzione/main.tex}
+    \input{Capitoli/Capitolo_Convoluzione/convoluzioni.tex}
+    \input{Capitoli/Capitolo_Convoluzione/Struttura_di_una_CNN.tex}
+    %\input{Capitoli/Capitolo_Convoluzione/architetture.tex}
+
+    %%==========[CAPITOLO VI]==========%%
+    \input{Capitoli/ImageSegmentation/main.tex}
+    \input{Capitoli/ImageSegmentation/Image_Segmentation.tex}
+    \input{Capitoli/ImageSegmentation/architetture.tex}
+
+    %%[CAPITOLO VII]
+    \input{Capitoli/Sperimentazione/Introduzione.tex}
+    \input{Capitoli/Sperimentazione/prova_applicativa.tex}
+    %\input{Capitoli/Sperimentazione/Dataset.tex}
+    \input{Capitoli/Sperimentazione/Implmentazione_segmentazione.tex}
+
+    %==========[CONCLUSIONI]==========%%
+    \input{Conclusioni.tex}
+    
+    %%==========[FONTI]==========%%
+    % La bibliografia è la raccolta delle fonti 
+    % cartacee consultate per la stesura della tesi. 
+    % Possiamo includere libri, documenti, articoli e 
+    % riviste; la sitografia, invece, è la raccolta 
+    % delle fonti online menzionate nella tesi, dunque 
+    % siti web e, in generale, tutti gli elementi 
+    % digitali reperibili in rete.
+
+    \input{Bibliografica.tex}
+
+
+    %pdflatex Tesi.tex
+    %bibtex Tesi
+
+\end{document}

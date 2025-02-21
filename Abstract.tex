@@ -1,0 +1,105 @@
+% Abstract
+\chapter*{Introduzione}
+\addcontentsline{toc}{chapter}{Introduzione} 
+
+Il telerilevamento è una scienza che permette di identificare, misurare ed
+analizzare le caratteristiche qualitative e quantitative di un determinato oggetto,
+area o fenomeno senza entrare in contatto diretto con esso. In generale l’oggetto di
+studio nel telerilevamento è il pianeta Terra in tutte le sue componenti: territorio,
+acqua e atmosfera. Avendo la possibilità di operare dall'alto, a diverse distanze
+e in tempi differenti, questa disciplina ha introdotto una nuova filosofia di
+controllo e d’indagine nello studio del territorio e dei relativi problemi,
+permettendo di osservare fenomeni non direttamente accessibili e quindi di
+superare le difficoltà connesse alle campagne di misura a terra, quali grandi sforzi
+organizzativi, tempo e risorse non sempre disponibili 
+\cite{ALL4_REMOTE_SENSING, ALL5_REMOTE_SENSING,ALL6_REMOTE_SENSING}.
+
+Negli ultimi anni, in quest’ambito si è fatta molta strada in termini tecnologici
+e le risoluzioni, sia geometriche che spettrali, dei sensori impiegati, sono
+nettamente migliorate, permettendo di estendere le applicazioni del
+telerilevamento all’agricoltura di precisione. L'agricoltura di precisione è una strategia di 
+gestione dell’attività agricola con la quale i dati vengono raccolti, 
+elaborati, analizzati e combinati con altre informazioni per orientare le decisioni in 
+funzione della variabilità spaziale e temporale al fine di migliorare l'efficienza 
+nell'uso delle risorse, la produttività, la qualità, la redditività e la sostenibilità 
+della produzione agricola \cite{Agricoltura_precisione}.
+
+La mappatura delle colture (\textit{Crop mapping}) è fondamentale per supportare il 
+processo decisionale e fornire inventari accurati e tempestivi per stimare la 
+produzione e monitorare la crescita dinamica delle colture a varie scale. 
+Tuttavia, la mappatura delle colture in situ (sul posto) si rivela spesso costosa e ad alta 
+intensità di lavoro. Il telerilevamento satellitare offre un'alternativa più economica, 
+in grado di fornire serie di dati temporali in grado di catturare ripetutamente le 
+dinamiche della crescita delle colture su larga scala e a intervalli regolarmente 
+rivisitati. Sebbene la maggior parte dei prodotti di tipo colturale esistenti sia 
+generata utilizzando dati di telerilevamento e approcci di apprendimento automatico, 
+l'accuratezza delle previsioni può essere bassa, dato che persistono errori di classificazione 
+dovuti alle somiglianze fenologiche tra le diverse colture e alla complessità dei sistemi agricoli 
+negli scenari reali. Le reti neurali profonde dimostrano un grande potenziale nel catturare i 
+modelli stagionali e le relazioni sequenziali nei dati delle serie temporali nel contesto 
+del loro modo di apprendere le caratteristiche in modo completo e autonomo. 
+
+% Questa tesi ha presentato 
+% un'esplorazione completa di metodologie avanzate di deep learning per la mappatura 
+% delle colture agricole su larga scala, utilizzando dati di telerilevamento multi-temporali e multi-sorgente.
+
+
+Questa tesi esplora le applicazioni delle reti neurali, nello specifico di reti 
+convoluzionali (CNN), per affrontare il problema della segmentazione semantica 
+su immagini satellitari Sentinel-2, con l'obiettivo principale di mappare su 
+larga scala le colture agricole.
+%Al fine della mappatura delle colture agricole su larga scala.
+La tesi espone lo sviluppo di un sistema capace di apprendere 
+automaticamente le caratteristiche di ogni campo agricolo, utilizzando per l’addestramento 
+il dataset Sentinel2-Munich480 \cite{Munich480}.
+Questo sistema, applicabile alle immagini satellitari, 
+consente di identificare i campi agricoli e di riconoscere le diverse colture.
+% In modo che possa essere utilizzato su 
+% immagini satellitari, per riconoscere, tramite segmentazione segmentazione semantica, i campi 
+% agricoli e distinguere il contenuto. Utilizzando per lo sviluppo del sistema i dati del dataset 
+% Sentinel2-Munich480 \cite{Munich480}.
+% L’obiettivo della tesi consisterebbe nello sviluppo di un sistema capace di apprendere 
+% automaticamente le caratteristiche di ogni campo agricolo. In modo che possa essere utilizzato 
+% per riconoscere e distinguere, tramite segmentazione segmentazione semantica, i campi agricoli 
+% presenti nelle immagini satellitari.
+La tesi espone anche tutta la parte teorica relativa al funzionamento delle reti neurali, sia classiche 
+che convolutive, esponendo anche come vengono rappresentati e acquisiti i dati nel telerilevamento. 
+% Nel corso degli esperimenti, verranno addestrate e valutate diverse architetture 
+% di reti neurali, esplorando le potenzialità delle diverse architetture nella 
+% cattura di informazioni spaziali e temporali.
+
+% Illustrando anche tutto quello che c'è dietro al funzionamento 
+% delle reti neurali.
+
+La tesi è strutturata su otto capitoli:
+Il primo capitolo tratta la definizione di rete neurale, di \textit{Deep learning} e di 
+\text{Machine Learning}.
+Viene inoltre illustrato il concetto di dataset ed i metodi che si utilizzano per 
+valutare le prestazioni di un modello di \textit{Deep learning}.
+
+Nel secondo capitolo vengono presentati i framework che permettono lo sviluppo di modelli 
+di \textit{Deep learning}, il linguaggio di programmazione utilizzato per la realizzazione dei 
+modelli ed il concetto di Tensore.
+
+Nel terzo capitolo vengono richiamati i concetti fondamentali del
+telerilevamento, illustrando come avviene l'acquisizione delle informazioni nel telerilevamento.
+
+Nel quarto capitolo si approfondisce il funzionamento di una rete neurale classica, 
+partendo dalle basi fino a trattare concetti più complessi.
+
+Nel quinto capitolo vengono trattate le reti neurali convolutive, illustrando i principi 
+su cui si basano queste tipologie di reti e gli elementi di cui sono composte. 
+
+% Nel sesto capitolo vengono richiamati i concetti di base dietro alla segmentazione delle immagini.
+% Sempre nello stesso capitolo, viene anche illustrata l'architettura UNet.
+Nel sesto capitolo vengono trattati i concetti di base relativi alla segmentazione 
+delle immagini. Illustrando anche l'architettura UNet, spesso utilizzata per applicazioni 
+di segmentazione semantica delle immagini.
+
+Il settimo capitolo tratta la sperimentazione, illustrando il processo per la realizzazione di 
+un modello in grado di eseguire la segmentazione semantica su delle immagini satellitari.
+
+% Mentre nell'ottavo capitolo vengono discussi i risultati ottenuti, mettendoli a confronto con i 
+% risultati ottenuti da altri modelli applicati allo stesso problema. 
+Nell'ottavo capitolo vengono discussi i risultati ottenuti, confrontandoli
+con quelli ottenuti da altri modelli descritti in articoli che utilizzano lo stesso dataset.

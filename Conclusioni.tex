@@ -1,0 +1,315 @@
+\chapter{Conclusioni}
+% Questa sperimentazione ci ha consentito di capire come implementare e 
+% ottimizzare delle reti neurali per la mappatura dei campi agricoli a partire da immagini 
+% satellitari sentinel-2. 
+% In particolare, sono state sperimentate due diverse architetture, descrivendo per 
+% ciascuna il procedimento adottato per migliorarne la precisione e analizzandone i limiti.
+% Conducendo l'addestramento e valutazione di ogni modello è esclusivamente sui dati 
+% relativi all'anno 2016.
+% Tra i modelli sviluppati, il migliore risultato è stato ottenuto dal modello basato 
+% sull'architettura UNet-3D. Sul dataset di validazione, 
+% questo modello ha raggiunto i seguenti risultati:
+Questa sperimentazione ci ha permesso di comprendere come implementare ed 
+ottimizzare reti neurali per la mappatura dei campi agricoli utilizzando 
+immagini satellitari Sentinel-2.
+In particolare, sono state testate due diverse architetture, descrivendo per 
+ciascuna il processo adottato per migliorarne la precisione. 
+% L'addestramento e la 
+% valutazione di ogni modello sono stati effettuati esclusivamente sui dati relativi all'anno 2016.
+Tra i modelli sviluppati, i risultati migliori sono stati ottenuti dal modello 
+basato sull'architettura UNet-3D. Su un dataset di validazione, questo modello ha 
+raggiunto i seguenti risultati:
+
+% \begin{table}[H]
+%     \centering
+%     \setlength{\tabcolsep}{5pt} % Riduce la spaziatura tra le colonne
+%     \renewcommand{\arraystretch}{1.2} % Aumenta lo spazio tra le righe
+%     \begin{tabular}{|l||c|c|c|c|c||}
+%     \hline
+%     \multicolumn{6}{|c|}{\textbf{Validation}} \\
+%     \hline
+%     \textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Kappa} & \textbf{\#Pixels} \\
+%     \hline
+%     Sugar beet    & 86.37 & 93.51 & 88.85 & 0.88 & 38k \\
+%     Summer oat    & 69.55 & 75.66 & 70.12 & 0.69 & 26k \\
+%     Meadow        & 77.90 & 77.48 & 75.10 & 0.70 & 148k \\
+%     Rape          & 89.79 & 93.06 & 90.94 & 0.90 & 82k \\
+%     Hop           & 85.46 & 91.22 & 86.62 & 0.81 & 31k \\
+%     Winter spelt  & 71.31 & 63.33 & 63.45 & 0.60 & 24k \\
+%     Winter triticale & 66.92 & 55.66 & 55.99 & 0.53 & 38k \\
+%     Beans         & 76.44 & 84.39 & 78.35 & 0.74 & 18k \\
+%     Peas          & 82.81 & 79.52 & 78.31 & 0.77 & 5k  \\
+%     Potato        & 84.58 & 85.88 & 83.77 & 0.81 & 78k \\
+%     Soybeans      & 81.53 & 83.95 & 80.61 & 0.78 & 12k \\
+%     Asparagus     & 79.17 & 78.92 & 75.87 & 0.72 & 13k \\
+%     Winter wheat  & 92.12 & 85.07 & 86.99 & 0.82 & 511k \\
+%     Winter barley & 86.29 & 85.10 & 84.56 & 0.83 & 164k \\
+%     Winter rye    & 65.76 & 55.33 & 54.81 & 0.52 & 27k \\
+%     Summer barley & 81.07 & 82.64 & 80.27 & 0.79 & 45k \\
+%     Maize         & 95.84 & 90.78 & 92.63 & 0.88 & 572k \\
+%     \hline
+%     \textbf{Weighted Avg.} & 88.80 & 85.29 & 85.55 & - & - \\
+%     \hline
+%     \textbf{Overall Accuracy} & \multicolumn{5}{|c||}{91.84\%} \\
+%     \textbf{Overall Kappa}    & \multicolumn{5}{|c||}{89.95\%} \\
+%     \hline
+%     \end{tabular}
+%     \caption{Metriche delle prestazioni per la segmentazione delle colture sul dataset di 
+%     validazione dell'anno 2016.}
+%     \label{tab:crop_segmentation_2016_val}
+% \end{table}
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{5pt} % Riduce la spaziatura tra le colonne
+    \renewcommand{\arraystretch}{1.2} % Aumenta lo spazio tra le righe
+    \begin{tabular}{|l||c|c|c|c||}
+    \hline
+    \multicolumn{5}{|c|}{\textbf{Validation}} \\
+    \hline
+    \textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Kappa} \\
+    \hline
+    Sugar beet    & 86.37 & 93.51 & 88.85 & 0.88 \\
+    Summer oat    & 69.55 & 75.66 & 70.12 & 0.69 \\
+    Meadow        & 77.90 & 77.48 & 75.10 & 0.70 \\
+    Rape          & 89.79 & 93.06 & 90.94 & 0.90 \\
+    Hop           & 85.46 & 91.22 & 86.62 & 0.81 \\
+    Winter spelt  & 71.31 & 63.33 & 63.45 & 0.60 \\
+    Winter triticale & 66.92 & 55.66 & 55.99 & 0.53 \\
+    Beans         & 76.44 & 84.39 & 78.35 & 0.74 \\
+    Peas          & 82.81 & 79.52 & 78.31 & 0.77 \\
+    Potato        & 84.58 & 85.88 & 83.77 & 0.81 \\
+    Soybeans      & 81.53 & 83.95 & 80.61 & 0.78 \\
+    Asparagus     & 79.17 & 78.92 & 75.87 & 0.72 \\
+    Winter wheat  & 92.12 & 85.07 & 86.99 & 0.82 \\
+    Winter barley & 86.29 & 85.10 & 84.56 & 0.83 \\
+    Winter rye    & 65.76 & 55.33 & 54.81 & 0.52 \\
+    Summer barley & 81.07 & 82.64 & 80.27 & 0.79 \\
+    Maize         & 95.84 & 90.78 & 92.63 & 0.88 \\
+    \hline
+    \textbf{Weighted Avg.} & 88.80 & 85.29 & 85.55 & - \\
+    \hline
+    \textbf{Overall Accuracy} & \multicolumn{4}{|c||}{91.84\%} \\
+    \textbf{Overall Kappa}    & \multicolumn{4}{|c||}{89.95\%} \\
+    \hline
+    \end{tabular}
+    \caption{Metriche delle prestazioni per la segmentazione delle colture sul dataset di 
+    validazione.}
+    \label{tab:crop_segmentation_2016_val}
+\end{table}
+\newpage
+Sul dataset di valutazione, il modello ha ottenuto i seguenti risultati: 
+
+% \begin{table}[H]
+%     \centering
+%     \setlength{\tabcolsep}{5pt} % Riduce la spaziatura tra le colonne
+%     \renewcommand{\arraystretch}{1.2} % Aumenta lo spazio tra le righe
+%     \begin{tabular}{|l||c|c|c|c|c||}
+%     \hline
+%     \multicolumn{6}{|c|}{\textbf{Test}} \\
+%     \hline
+%     \textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Kappa} & \textbf{\#Pixels} \\
+%     \hline
+%     Sugar beet      & 0.8113 & 0.9063 & 0.8464 & 0.8349 & 20k \\
+%     Summer oat      & 0.7498 & 0.7672 & 0.7338 & 0.7205 & 21k \\
+%     Meadow          & 0.7638 & 0.7816 & 0.7473 & 0.7134 & 129k \\
+%     Rape            & 0.9045 & 0.9406 & 0.9167 & 0.8943 & 89k \\
+%     Hop             & 0.8266 & 0.8509 & 0.8258 & 0.7822 & 60k \\
+%     Winter spelt    & 0.7551 & 0.5876 & 0.5916 & 0.5361 & 27k \\
+%     Winter triticale & 0.6536 & 0.5456 & 0.5546 & 0.5272 & 30k \\
+%     Beans           & 0.7739 & 0.8244 & 0.7694 & 0.7541 & 13k \\
+%     Peas            & 0.7095 & 0.7214 & 0.6916 & 0.6793 & 9k  \\
+%     Potato          & 0.8080 & 0.8273 & 0.8072 & 0.7891 & 58k \\
+%     Soybeans        & 0.8412 & 0.8782 & 0.8505 & 0.8042 & 13k \\
+%     Asparagus       & 0.7382 & 0.6496 & 0.6014 & 0.5689 & 4k  \\
+%     Winter wheat    & 0.9259 & 0.8567 & 0.8747 & 0.8313 & 528k \\
+%     Winter barley   & 0.8976 & 0.8883 & 0.8799 & 0.8621 & 197k \\
+%     Winter rye      & 0.5713 & 0.4768 & 0.4744 & 0.4544 & 14k \\
+%     Summer barley   & 0.8290 & 0.8007 & 0.7871 & 0.7537 & 43k \\
+%     Maize           & 0.9584 & 0.9120 & 0.9297 & 0.8752 & 640k \\
+%     \hline
+%     \textbf{Weighted Avg.} & 0.8973 & 0.8618 & 0.8652 & - & - \\
+%     \hline
+%     \textbf{Overall Accuracy} & \multicolumn{5}{|c||}{91.92\%} \\
+%     \textbf{Overall Kappa}    & \multicolumn{5}{|c||}{89.82\%} \\
+%     \hline
+%     \end{tabular}
+%     \caption{Metriche delle prestazioni per la segmentazione delle colture sul 
+%     dataset di valutazione dell'anno 2016.}
+%     \label{tab:crop_segmentation_2016_test}
+% \end{table}
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{5pt} % Riduce la spaziatura tra le colonne
+    \renewcommand{\arraystretch}{1.2} % Aumenta lo spazio tra le righe
+    \begin{tabular}{|l||c|c|c|c||}
+    \hline
+    \multicolumn{5}{|c|}{\textbf{Test}} \\
+    \hline
+    \textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Kappa} \\
+    \hline
+    Sugar beet      & 0.81 & 0.91 & 0.85 & 0.83 \\
+    Summer oat      & 0.75 & 0.77 & 0.73 & 0.72 \\
+    Meadow          & 0.76 & 0.78 & 0.75 & 0.71 \\
+    Rape            & 0.90 & 0.94 & 0.92 & 0.89 \\
+    Hop             & 0.83 & 0.85 & 0.83 & 0.78 \\
+    Winter spelt    & 0.76 & 0.59 & 0.59 & 0.54 \\
+    Winter triticale & 0.65 & 0.55 & 0.55 & 0.53 \\
+    Beans           & 0.77 & 0.82 & 0.77 & 0.75 \\
+    Peas            & 0.71 & 0.72 & 0.69 & 0.68 \\
+    Potato          & 0.81 & 0.83 & 0.81 & 0.79 \\
+    Soybeans        & 0.84 & 0.88 & 0.85 & 0.80 \\
+    Asparagus       & 0.74 & 0.65 & 0.60 & 0.57 \\
+    Winter wheat    & 0.93 & 0.86 & 0.87 & 0.83 \\
+    Winter barley   & 0.90 & 0.89 & 0.88 & 0.86 \\
+    Winter rye      & 0.57 & 0.48 & 0.47 & 0.45 \\
+    Summer barley   & 0.83 & 0.80 & 0.79 & 0.75 \\
+    Maize           & 0.96 & 0.91 & 0.93 & 0.88 \\
+    \hline
+    \textbf{Weighted Avg.} & 0.90 & 0.86 & 0.87 & - \\
+    \hline
+    \textbf{Overall Accuracy} & \multicolumn{4}{|c||}{91.92\%} \\
+    \textbf{Overall Kappa}    & \multicolumn{4}{|c||}{89.82\%} \\
+    \hline
+    \end{tabular}
+    \caption{Metriche delle prestazioni per la segmentazione delle colture sul 
+    dataset di valutazione.}
+    \label{tab:crop_segmentation_2016_test}
+\end{table}
+
+
+L'accuratezza nella classificazione delle colture ottenuta dal nostro modello 
+può essere considerata molto soddisfacente, avendo raggiunto  
+un valore di $91.84\%$ sulla validazione e un valore di $92.92\%$ sulla valutazione. 
+Questi risultati superano l'accuratezza dell'$89.7\%$ ottenuta sul dataset di valutazione 
+dal modello descritto nell'articolo "\textit{"Multi-Temporal Land Cover Classification with 
+Sequential Recurrent Encoders"} \cite{ARTICOLO_ORIGINALE_MUNICH}, il primo a trattare 
+l'applicazione di una rete neurale sul dataset Sentinel2-Munich480.
+Il modello presentato in quell'articolo era basato su un'architettura di 
+tipo Sequential Recurrent Encoders \cite{RETE_RICORRENTE} per la mappatura delle colture.
+Il nostro modello ha ottenuto risultati comparabili a quelli descritti in tale articolo. 
+In particolare, entrambi i modelli, presentano delle difficoltà nel riconoscere
+le classi "\textit{Winter rye}" e "\textit{Winter triticale}", dovute principalmente 
+alla difficoltà nel distinguere l'aspetto spettrale e fenologico delle due colture. 
+% Questo dovuto principalmente alla difficoltà nel distinguere l'aspetto spettrale e 
+% fenologico tra le due colture.
+Inoltre, il nostro modello si è avvicinato anche ai risultati ottenuti dal modello descritto 
+nell'articolo
+"\textit{Enhancing Crop Segmentation in Satellite Image Time Series with Transformer Networks}" 
+\cite{ARTICOLO_TRANSFORMER}. 
+In questo articolo è stato presentato un modello basato su un'architettura 
+\textit{Transformer} \cite{TRANSFORMER} per eseguire la mappatura delle 
+colture sul dataset Sentinel2-Munich480, ottenendo una precisione del $96.14\%$ 
+sul dataset di validazione e una precisione del $95.26\%$ sul dataset di valutazione.
+
+\newpage
+Confrontando il nostro modello con quelli trattati in altri articoli, questa è 
+la situazione che si riscontra:
+
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{8pt} % Spaziatura tra le colonne
+    \renewcommand{\arraystretch}{1.2} % Spaziatura tra le righe
+    \begin{tabular}{|l||c|c|c|c|}
+    \hline
+    \multicolumn{5}{|c|}{\textbf{Munich Metrics}} \\
+    \hline
+    \textbf{Model} & \textbf{OA\_test} & \textbf{OK\_test} & \textbf{OA\_val} & \textbf{OK\_val} \\
+    \hline
+    Swin UNETR \cite{ARTICOLO_TRANSFORMER} & 95.26\% & 93.89\% & 96.14\% &  94.89\% \\
+    UNet 3D \cite{UNET_3D_munich_application} & 94.73\% &  93.46\% & - & - \\
+    FPN3D \cite{FPN3D}  & 93.11\% &  91.44\% & - & - \\
+    *UNet 3D & 91.92\% & 89.82\% & 91.84\% & 89.95\% \\
+    SRE \cite{ARTICOLO_ORIGINALE_MUNICH} & 89.6\% & 87.0\% & - & - \\
+    DeepLabv3 3D \cite{ARTICOLO_TRANSFORMER} & 85.98\% &  82.53\% & - & - \\
+
+    \hline
+    \end{tabular}
+    \caption{Confronto tra le metriche globali ottenute da differenti modelli. 
+    OA rappresenta l'accuratezza complessiva e OK il coefficiente di kappa.   
+    Il simbolo '*' indica il nostro modello.}
+    \label{tab:munich_metrics}
+\end{table}
+
+
+%In ogni caso, possiamo 
+Ci consideriamo soddisfatti dei risultati ottenuti, in quanto siamo riusciti a 
+raggiungere gli obiettivi prefissati. Tuttavia, esistono ancora margini di miglioramento 
+per ottimizzarne ulteriormente l'accuratezza del nostro modello. Ad esempio, 
+si potrebbe prestare maggiore attenzione a come variare il valore del \textit{learning rate}, per 
+evitare che il modello resti bloccato in un minimo locale, così come alla scelta 
+degli algoritmi di ottimizzazione da utilizzare.
+Inoltre, alcuni aspetti legati all’architettura della rete potrebbero essere perfezionati. 
+Nello specifico, in questo lavoro è stata impiegata una nostra variante dell’architettura 
+U-Net 3D, diversa rispetto ad altre implementazioni presenti in diversi repository 
+\cite{Implementazione1_3D_UNET,Implementazione2_3D_UNET,UNET_3D_munich_application}.
+
+
+
+
+
+
+
+% L'accuratezza ottenuta dalla classificazione delle coltura la possiamo definire più 
+% che buona, in quanto siamo riuscita ad ottenere un valore di accuratezza 
+% sui dati del 2016 pari a $91.7\%$. Superando l'accuratezza del $89.7\%$ ottenuta dal 
+% modello descritto nell'articolo "\textit{Multi-Temporal Land Cover Classification with
+% Sequential Recurrent Encoders}", il primo articolo che ha trattato il dataset di 
+% sentinel2-Munich480, che si basava su una rete ricorrente per 
+% eseguire la mappature delle culture \cite{ARTICOLO_ORIGINALE_MUNICH}. 
+% In oltre, siamo riusciti anche ad avvicinarsi all'accuratezza del $96.14\%$ raggiunta dal 
+% modello esposto nell'articolo "\textit{Enhancing Crop Segmentation in 
+% satellite image time series with Transformer Networks}", che sfruttava una rete 
+% \textit{Transformer} per eseguire la mappature delle culture \cite{ARTICOLO_TRANSFORMER}.
+
+% Questo valore di accuratezza può ancora essere leggermente migliorato prestando una 
+% maggiore attenzione ad esempio al \textit{learning rate}, agli algoritmi di ottimizzazione 
+% o a come vengono rappresentati i dati. Oppure prestando anche attenzione ad alcune aspetti 
+% dell'architettura della rete, in quanto abbiamo utilizzano una nostra variazione 
+% dell'architettura dell'Unet 3D e non le stesse identiche implementazioni 
+% \cite{Implementazione1_3D_UNET,Implementazione2_3D_UNET}.
+
+
+% \begin{table}[ht]
+%     \centering
+%     \setlength{\tabcolsep}{5pt} % Riduce la spaziatura tra le colonne
+%     \renewcommand{\arraystretch}{1.2} % Aumenta lo spazio tra le righe
+%     \begin{tabular}{|l|c|c|c|c|c|c||c|c|c|c|c|c|}
+%     \hline
+%     \textbf{Class} & \multicolumn{6}{|c||}{\textbf{2016}} & \multicolumn{6}{|c|}{\textbf{2017}} \\
+%     \hline
+%     & Precision & Recall & $f$-Meas. & Kappa & \#Pixels & & Precision & Recall & $f$-Meas. & Kappa & \#Pixels \\
+%     \hline
+%     Sugar beet    & 94.6 & 77.6 & 85.3 & .772 & 59k  & & 89.2 & 78.5 & 83.5 & .779 & 94k  \\
+%     Oat           & 86.1 & 67.8 & 75.8 & .675 & 36k  & & 63.8 & 62.8 & 63.3 & .623 & 38k  \\
+%     Meadow        & 90.8 & 85.7 & 88.2 & .845 & 233k & & 88.1 & 85.0 & 86.5 & .837 & 242k \\
+%     Rapeseed      & 95.4 & 90.0 & 92.6 & .896 & 125k & & 96.2 & 95.9 & 96.1 & .957 & 114k \\
+%     Hop           & 96.4 & 87.5 & 91.7 & .873 & 51k  & & 92.5 & 74.7 & 82.7 & .743 & 53k  \\
+%     Spelt         & 55.1 & 81.1 & 65.6 & .807 & 38k  & & 75.3 & 46.7 & 57.6 & .463 & 31k  \\
+%     Triticale     & 69.4 & 55.7 & 61.8 & .549 & 65k  & & 62.4 & 57.2 & 59.7 & .563 & 64k  \\
+%     Beans         & 92.4 & 87.1 & 89.6 & .869 & 27k  & & 92.8 & 63.2 & 75.2 & .620 & 28k  \\
+%     Peas          & 93.2 & 70.7 & 80.4 & .706 & 9k   & & 60.9 & 41.5 & 49.3 & .414 & 6k   \\
+%     Potato        & 90.9 & 88.2 & 89.5 & .795 & 126k & & 95.2 & 73.8 & 83.1 & .728 & 140k \\
+%     Soybeans      & 97.7 & 79.6 & 87.7 & .795 & 21k  & & 75.9 & 79.9 & 77.8 & .798 & 26k  \\
+%     Asparagus     & 89.2 & 78.8 & 83.7 & .787 & 20k  & & 81.6 & 77.5 & 79.5 & .773 & 19k  \\
+%     Wheat         & 87.7 & 93.1 & 90.3 & .902 & 806k & & 90.1 & 95.0 & 92.5 & .915 & 783k \\
+%     Winter barley & 95.2 & 87.3 & 91.0 & .861 & 258k & & 92.5 & 92.2 & 92.4 & .915 & 255k \\
+%     Rye           & 85.6 & 47.0 & 60.7 & .466 & 43k  & & 76.7 & 61.9 & 68.5 & .616 & 30k  \\
+%     Summer barley & 87.5 & 83.4 & 85.4 & .830 & 73k  & & 77.9 & 88.5 & 82.9 & .880 & 91k  \\
+%     Maize         & 91.6 & 96.3 & 93.9 & .944 & 919k & & 92.3 & 96.8 & 94.5 & .953 & 876k \\
+%     \hline
+%     \textbf{Weight avg.} & 89.9 & 89.7 & 89.5 & & & & 89.5 & 89.5 & 89.5 & & \\
+%     \hline
+%     \textbf{Overall Accuracy} & \multicolumn{6}{|c||}{89.7} & \multicolumn{6}{|c|}{89.5} \\
+%     \textbf{Overall Kappa}    & \multicolumn{6}{|c||}{.870} & \multicolumn{6}{|c|}{.870} \\
+%     \hline
+%     \end{tabular}
+%     \caption{Performance metrics for crop segmentation over 2016 and 2017.}
+%     \label{tab:crop_segmentation}
+%     \end{table}
+
+
+    
+    
